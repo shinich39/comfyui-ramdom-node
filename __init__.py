@@ -30,7 +30,7 @@ class RandomNode:
     def INPUT_TYPES(cls):
         return {
             "required": {
-                "type": (["boolean","number","int","float","string","text","image","latent",],),
+                "type": (["boolean","number","int","float","string","text","image","mask","latent","conditioning","model","clip","vae",],),
                 "count": ("INT", {"default": 1, "min": 1, "max": 99, "step": 1}),
                 "input": (ANY_TYPE, )
             },
