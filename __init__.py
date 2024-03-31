@@ -7,6 +7,7 @@
 """
 
 import random
+import re
 
 DEBUG = False
 VERSION = "1.0.1"
@@ -22,6 +23,9 @@ class AnyType(str):
 
 ANY_TYPE = AnyType("*")
 
+def getNumber(text):
+    return int(re.findall(r'\d+', text).pop())
+
 class RandomNode:
     def __init__(self):
         pass
@@ -31,9 +35,10 @@ class RandomNode:
         return {
             "required": {
                 "type": (["boolean","number","int","float","string","text","image","mask","latent","conditioning","model","clip","vae",],),
-                "input1": (ANY_TYPE,),
+                "input0": (ANY_TYPE,),
             },
             "optional": {
+                "input1": (ANY_TYPE,),
                 "input2": (ANY_TYPE,),
                 "input3": (ANY_TYPE,),
                 "input4": (ANY_TYPE,),
@@ -41,7 +46,6 @@ class RandomNode:
                 "input6": (ANY_TYPE,),
                 "input7": (ANY_TYPE,),
                 "input8": (ANY_TYPE,),
-                "input9": (ANY_TYPE,),
             }
         }
     
@@ -51,30 +55,34 @@ class RandomNode:
     
     CATEGORY = "utils"
     RETURN_TYPES = (ANY_TYPE,ANY_TYPE,ANY_TYPE,ANY_TYPE,ANY_TYPE,ANY_TYPE,ANY_TYPE,ANY_TYPE,ANY_TYPE,)
-    RETURN_NAMES = ("output1","output2","output3","output4","output5","output6","output7","output8","output9",)
+    RETURN_NAMES = ("output0","output1","output2","output3","output4","output5","output6","output7","output8",)
     FUNCTION = "exec"
 
     def exec(self, type, **inputs):
 
         if DEBUG:
             print(f"type: {type}")
+            print(f"inputs: {inputs}")
     
+        result = [None for i in range(9)]
+        keys = [getNumber(k) for k in list(inputs.keys())]
         values = list(inputs.values())
-        new_values = []
-        for i in range(9):
-            for v in values:
-                new_values.append(v)
 
+        random.shuffle(keys)
 
         if DEBUG:
-            print(new_values)
+            print(f"keys: {keys}")
+            print(f"values: {values}")
 
-        random.shuffle(new_values)
+        for i in range(len(keys)):
+            index = keys[i]
+            value = values[i]
+            result[index] = value
 
         if DEBUG:
-            print(new_values[0:9])
+            print(f"result: {result}")
 
-        return tuple(new_values[0:9])
+        return tuple(result)
 
 NODE_CLASS_MAPPINGS["Random Node #39"] = RandomNode
 NODE_DISPLAY_NAME_MAPPINGS["Random Node #39"] = "Random Node #39"
