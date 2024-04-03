@@ -1,6 +1,7 @@
 ## comfyui-random-node-39
 
-Choose random node.
+Choose random node./
+Maybe support all types of node.
 
 ![image-1](./images/workflow.png)
 
