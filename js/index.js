@@ -328,5 +328,5 @@ function updateHandler({ detail }) {
   }
 }
 
-api.addEventListener("executing", updateHandler);
+api.addEventListener("executed", updateHandler);
 // api.addEventListener("execution_cached", updateHandler);
