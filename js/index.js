@@ -328,5 +328,6 @@ function updateHandler({ detail }) {
   }
 }
 
-api.addEventListener("executed", updateHandler);
+api.addEventListener("promptQueued", updateHandler);
+// api.addEventListener("executed", updateHandler);
 // api.addEventListener("execution_cached", updateHandler);
