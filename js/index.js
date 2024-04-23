@@ -127,10 +127,10 @@ app.registerExtension({
       const link = app.graph.links[linkId];
       const targetNode = app.graph.getNodeById(link.origin_id)
       const targetSlot = targetNode.outputs[link.origin_slot];
-      return targetSlot.type;
+      return targetSlot && targetSlot.type ? targetSlot.type : null;
     }
 
-    node.showSlotType = function(type) {
+    node.showSlotType = function() {
       try {
         if (this.outputs && this.outputs.length > 0) {
           this.outputs[0].label = this.__type ? this.__type : "";
