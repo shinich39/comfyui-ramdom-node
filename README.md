@@ -11,6 +11,6 @@ Maybe support all types of node.
 
 ![image-2](./images/example.gif)
 
-## Credits
+## References
 
 - [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
