@@ -154,7 +154,6 @@ app.registerExtension({
       } catch(err) {
         // error occurred at first link in workflow
         console.error(err);
-        console.log(app.graph.links)
       }
     }
 
