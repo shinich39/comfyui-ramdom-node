@@ -1,13 +1,12 @@
-## comfyui-random-node-39
+## comfyui-random-node
 
-Choose random node.\
-Maybe support all types of node.
+Shuffle nodes after queue added.
 
 ![image-1](./images/workflow.png)
 
 ## Usage
 
-- Add node > utils > Random Node #39
+- Add node > utils > Random Node
 
 ![image-2](./images/example.gif)
 

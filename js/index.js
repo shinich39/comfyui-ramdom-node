@@ -2,17 +2,17 @@ import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
 const DEBUG = false;
-const CLASS_NAME = "Random Node #39";
+const CLASS_NAME = "Random Node";
 
 app.registerExtension({
-	name: "shinich39.RandomNode39",
+	name: "shinich39.RandomNode",
 	nodeCreated(node, app) {
     if (node.comfyClass !== CLASS_NAME) {
       return;
     }
   
     if (DEBUG) {
-      console.log("#39 node", node);
+      console.log("RandomNode.node", node);
     }
 
     node.onConnectInput = function(index, type, link_info, node) {
@@ -65,7 +65,7 @@ app.registerExtension({
       }
 
       size[0] = Math.max(input_width + output_width + 10, title_width);
-      size[0] = Math.max(size[0], LiteGraph.NODE_WIDTH * 1.15);
+      size[0] = Math.max(size[0], LiteGraph.NODE_WIDTH * 1);
       if (this.widgets && this.widgets.length) {
         size[0] = Math.max(size[0], LiteGraph.NODE_WIDTH * 1.5);
       }
@@ -172,7 +172,7 @@ app.registerExtension({
 
     node.shuffleInputs = function() {
       if (DEBUG) {
-        console.log("#39 shuffleInputs");
+        console.log("RandomNode.shuffleInputs");
       }
 
       const connectedInputs = this.getConnectedInputs();
@@ -224,7 +224,7 @@ app.registerExtension({
 
     node.onConnectionsChange = function(type, index, connected, link_info) {
       if (DEBUG) {
-        console.log("#39 change", type, index, connected, link_info);
+        console.log("RandomNode.onConnectionsChange", type, index, connected, link_info);
       }
 
       if (!this.inputs || !this.outputs) {
@@ -318,7 +318,7 @@ app.registerExtension({
 
 function updateHandler({ detail }) {
   if (DEBUG) {
-    console.log("#39 update", detail);
+    console.log("RandomNode.update", detail);
   }
 
   for (const node of app.graph._nodes) {
@@ -329,5 +329,3 @@ function updateHandler({ detail }) {
 }
 
 api.addEventListener("promptQueued", updateHandler);
-// api.addEventListener("executed", updateHandler);
-// api.addEventListener("execution_cached", updateHandler);

@@ -1,9 +1,9 @@
 """
 @author: shinich39
-@title: Random Node #39
-@nickname: Random Node #39
+@title: Random Node
+@nickname: Random Node
 @version: 1.0.2
-@description: Choose random node. Maybe support all types of node.
+@description: Shuffle nodes after queue added.
 """
 
 DEBUG = False
@@ -36,5 +36,5 @@ class RandomNode:
     RETURN_TYPES = (ANY_TYPE,)
     RETURN_NAMES = ("output0",)
 
-NODE_CLASS_MAPPINGS["Random Node #39"] = RandomNode
-NODE_DISPLAY_NAME_MAPPINGS["Random Node #39"] = "Random Node #39"
+NODE_CLASS_MAPPINGS["Random Node"] = RandomNode
+NODE_DISPLAY_NAME_MAPPINGS["Random Node"] = "Random Node"
