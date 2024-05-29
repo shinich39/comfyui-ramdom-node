@@ -4,6 +4,16 @@ import { api } from "../../scripts/api.js";
 const DEBUG = false;
 const CLASS_NAME = "Random Node";
 
+function shuffle(arr) {
+  let i = arr.length;
+  while (i > 0) {
+    let j = Math.floor(Math.random() * i);
+    i--;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 app.registerExtension({
 	name: "shinich39.RandomNode",
 	nodeCreated(node, app) {
@@ -205,9 +215,7 @@ app.registerExtension({
         this.disconnectInput(i);
       }
 
-      inputs = inputs.sort(function() {
-        return Math.random() - 0.5;
-      });
+      inputs = shuffle(inputs);
 
       for (let i = 0; i < outputs.length; i++) {
         const output = outputs[i];
