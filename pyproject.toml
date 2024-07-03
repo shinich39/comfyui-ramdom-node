@@ -1,6 +1,6 @@
 [project]
 name = "comfyui-ramdom-node"
-description = ""
+description = "Shuffle nodes after queue added."
 version = "1.0.0"
 license = "LICENSE"
 
