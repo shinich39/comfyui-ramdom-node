@@ -2,7 +2,7 @@
 name = "comfyui-ramdom-node"
 description = "Shuffle nodes after queue added."
 version = "1.0.0"
-license = "LICENSE"
+license = { file = "LICENSE" }
 
 [project.urls]
 Repository = "https://github.com/shinich39/comfyui-ramdom-node"
