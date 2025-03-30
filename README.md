@@ -6,7 +6,7 @@ Shuffle nodes after queue added.
 
 - Add node > utils > Random Node
 
-![image-2](./images/example.gif)
+![image-2](./example.gif)
 
 ## Acknowledgments
 
